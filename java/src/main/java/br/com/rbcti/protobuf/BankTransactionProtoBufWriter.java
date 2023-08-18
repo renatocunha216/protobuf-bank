@@ -90,7 +90,7 @@ public class BankTransactionProtoBufWriter {
     public void buildBankBuffer() {
         int i = 0;
         for (br.com.rbcti.model.Bank bank : banks) {
-        	banksBuffer[i++] = Bank.newBuilder().setBankCode(bank.getCode().intValue()).setName(bank.getName()).build();
+            banksBuffer[i++] = Bank.newBuilder().setBankCode(bank.getCode().intValue()).setName(bank.getName()).build();
         }
     }
 
@@ -106,29 +106,29 @@ public class BankTransactionProtoBufWriter {
             int minute = dateTime.getMinute();
             int seconds = dateTime.getSecond();
 
-			DateTime dateTimeBuffer = DateTime.newBuilder().setDay(day).setMonth(month).setYear(year).setHour(hour)
-					.setMinute(minute).setSecond(seconds).build();
+            DateTime dateTimeBuffer = DateTime.newBuilder().setDay(day).setMonth(month).setYear(year).setHour(hour)
+                    .setMinute(minute).setSecond(seconds).build();
 
-        	FundTransfer.Builder fundTransferBuilder = FundTransfer.newBuilder();
-        	fundTransferBuilder.setTransferDate(dateTimeBuffer);
-        	fundTransferBuilder.setSourceBank(banksBuffer[getNextBankIndex()]);
-        	fundTransferBuilder.setSourceBankAccount(BankAccount.newBuilder().setAccountNumber(c).setCheckDigit(getNextCheckDigit()).build());
-        	fundTransferBuilder.setDestinationBank(banksBuffer[getNextBankIndex()]);
-        	fundTransferBuilder.setDestinationBankAccount(BankAccount.newBuilder().setAccountNumber(c + 1).setCheckDigit(getNextCheckDigit()).build());
-        	fundTransferBuilder.setFeeAmount(randomFeeAmount[c]);
-        	fundTransferBuilder.setAmountTransfer(randomAmountTransfert[c]);
-        	fundTransferBuilder.setStatus(br.com.rbcti.protobuf.artifacts.Status.CONFIRMED);
-        	fundTransferBuilder.setAuthenticationCode(ByteString.copyFrom(randomAuthenticationCode[c]));
+            FundTransfer.Builder fundTransferBuilder = FundTransfer.newBuilder();
+            fundTransferBuilder.setTransferDate(dateTimeBuffer);
+            fundTransferBuilder.setSourceBank(banksBuffer[getNextBankIndex()]);
+            fundTransferBuilder.setSourceBankAccount(BankAccount.newBuilder().setAccountNumber(c).setCheckDigit(getNextCheckDigit()).build());
+            fundTransferBuilder.setDestinationBank(banksBuffer[getNextBankIndex()]);
+            fundTransferBuilder.setDestinationBankAccount(BankAccount.newBuilder().setAccountNumber(c + 1).setCheckDigit(getNextCheckDigit()).build());
+            fundTransferBuilder.setFeeAmount(randomFeeAmount[c]);
+            fundTransferBuilder.setAmountTransfer(randomAmountTransfert[c]);
+            fundTransferBuilder.setStatus(br.com.rbcti.protobuf.artifacts.Status.CONFIRMED);
+            fundTransferBuilder.setAuthenticationCode(ByteString.copyFrom(randomAuthenticationCode[c]));
 
-        	FundTransfer fundTransfer = fundTransferBuilder.build();
+            FundTransfer fundTransfer = fundTransferBuilder.build();
 
-        	this.bankTransactionBuilder.addTransactions(fundTransfer);
+            this.bankTransactionBuilder.addTransactions(fundTransfer);
         }
     }
 
     private BankTransaction buildBankTransaction() {
-    	this.bankTransaction = this.bankTransactionBuilder.build();
-    	return this.bankTransaction;
+        this.bankTransaction = this.bankTransactionBuilder.build();
+        return this.bankTransaction;
     }
 
     private void fillRandomFeeAmount() {
@@ -189,9 +189,7 @@ public class BankTransactionProtoBufWriter {
 
     public void saveToFile() {
 
-    	byte[] transactionsData = this.bankTransaction.toByteArray();
-
-        System.out.println("Total bytes: " + transactionsData.length);
+        byte[] transactionsData = this.bankTransaction.toByteArray();
 
         Path path = Path.of(System.getProperty("user.home"), "bankTransactionProtoBuf.bin");
         //Path path = Path.of("F:\\", "bankTransaction.bin");
@@ -226,12 +224,12 @@ public class BankTransactionProtoBufWriter {
 
             BankTransaction bankTransactions = BankTransaction.parseFrom(transactionsData);
 
-			if (bankTransactions.getTransactionsCount() < 1) {
-				System.err.println("No data found.");
-				return;
-			}
+            if (bankTransactions.getTransactionsCount() < 1) {
+                System.err.println("No data found.");
+                return;
+            }
 
-			int c = 0;
+            int c = 0;
 
             for (FundTransfer fundTransfer : bankTransactions.getTransactionsList()) {
 
