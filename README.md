@@ -2,7 +2,7 @@
 [![en](https://github.com/renatocunha216/common/blob/main/images/lang-en.svg?raw=true)](https://github.com/renatocunha216/protobuf-bank/blob/main/README.en.md)
 [![pt-br](https://github.com/renatocunha216/common/blob/main/images/lang-pt-br.svg?raw=true)](https://github.com/renatocunha216/protobuf-bank/blob/main/README.md)
 
-Exemplo de uso da biblioteca [Protocol Buffers](https://protobuf.dev//) para criar
+Exemplo de uso da biblioteca [Protocol Buffers](https://protobuf.dev/) para criar
 um arquivo binário com dados simulados de transações bancárias.
 
 O formato dos dados é definido com uma linguagem de definição (IDL - Interface Definition Language)
@@ -65,3 +65,5 @@ Buffer build time       : 2111 ms
 Reading time            : 2236 ms
 End test.
 ```
+
+Para propósito de comparação veja o exemplo [flatbuffers-bank](https://github.com/renatocunha216/flatbuffers-bank) que utiliza a bilbioteca FlatBuffers.
