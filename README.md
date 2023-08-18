@@ -48,7 +48,6 @@ Com verificação dos dados.
 Start test.
 Check data        : true
 Total transactions: 1.000.000
-Total bytes: 100300024
 C:\Users\renato\bankTransactionProtoBuf.bin file was successfully created.
 File lenght             : 100.300.024 bytes
 Buffer build time       : 2091 ms
@@ -60,11 +59,9 @@ Sem a verificação dos dados.
 Start test.
 Check data        : false
 Total transactions: 1.000.000
-Total bytes: 100300079
 C:\Users\renato\bankTransactionProtoBuf.bin file was successfully created.
 File lenght             : 100.300.079 bytes
 Buffer build time       : 2111 ms
 Reading time            : 2236 ms
 End test.
 ```
-
