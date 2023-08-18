@@ -1,0 +1,47 @@
+// Example proto file to define bank messages
+//
+//
+// https://protobuf.dev/programming-guides/proto3/
+//
+
+syntax = "proto3";
+
+import "common.proto";
+
+option java_multiple_files = true;
+option java_package = "br.com.rbcti.protobuf.artifacts";
+
+package bank;
+
+enum Status {
+  PENDING = 0;
+  CONFIRMED = 1;
+  CANCELED = 2;
+}
+
+message Bank {
+    string name = 1;
+    int32 bank_code = 2;
+}
+
+message BankAccount {
+    optional int32 account_number = 1;
+    optional int32 check_digit = 2;
+}
+
+message FundTransfer {
+    common.DateTime transfer_date = 1;
+    Bank source_bank = 2;
+    BankAccount source_bank_account = 3;
+    Bank destination_bank = 4;
+    BankAccount destination_bank_account = 5;
+    float fee_amount = 6;
+    double amount_transfer = 7;
+    Status status = 8;
+    bytes authentication_code = 9;
+}
+
+
+message BankTransaction {
+    repeated FundTransfer transactions = 1;
+}

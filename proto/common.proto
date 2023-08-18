@@ -1,0 +1,21 @@
+// Example proto file to define common messages
+//
+//
+// https://protobuf.dev/programming-guides/proto3/
+//
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.rbcti.protobuf.artifacts";
+
+package common;
+
+message DateTime {
+    optional int32 day = 1;
+    optional int32 month = 2;
+    optional int32 year = 3;
+    optional int32 hour = 4;
+    optional int32 minute = 5;
+    optional int32 second = 6;
+}
