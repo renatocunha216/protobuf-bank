@@ -13,12 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>  
-        <dependency>
-            <groupId>com.google.flatbuffers</groupId>
-            <artifactId>flatbuffers-java</artifactId>
-            <version>23.5.26</version>
-        </dependency>
+    <dependencies>          
         <dependency>
           <groupId>com.google.protobuf</groupId>
           <artifactId>protobuf-java</artifactId>
@@ -28,12 +23,7 @@
           <groupId>com.google.protobuf</groupId>
           <artifactId>protobuf-java-util</artifactId>
           <version>3.24.0</version>
-        </dependency>        
-        
-        
-        
-        
-        
+        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
