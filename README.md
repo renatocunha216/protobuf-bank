@@ -66,4 +66,32 @@ Reading time            : 2236 ms
 End test.
 ```
 
+**Processor:** Intel(R) Core(TM) i7-12700H<br>
+**OS:** Windows 11 Pro 22H2<br>
+**JVM:** OpenJDK Runtime Environment Temurin-17.0.8+7 (build 17.0.8+7)<br>
+**SSD:** NVMe
+
+Com verificação dos dados.
+```
+Start test.
+Check data        : true
+Total transactions: 1.000.000
+C:\Users\rbcun\bankTransactionProtoBuf.bin file was successfully created.
+File lenght             : 100.300.054 bytes
+Buffer build time       : 649 ms
+Read time and check time: 794 ms
+End test.
+```
+Sem a verificação dos dados.
+```
+Start test.
+Check data        : false
+Total transactions: 1.000.000
+C:\Users\rbcun\bankTransactionProtoBuf.bin file was successfully created.
+File lenght             : 100.300.059 bytes
+Buffer build time       : 666 ms
+Reading time            : 665 ms
+End test.
+```
+
 Para propósito de comparação veja o exemplo [flatbuffers-bank](https://github.com/renatocunha216/flatbuffers-bank) que utiliza a bilbioteca FlatBuffers.
